@@ -1,5 +1,6 @@
 // app/page.tsx
 import { auth } from "@/auth"
+import Image from "next/image"
 import { SignInWithGoogleButton, SignInWithGitHubButton, SignOutButton } from "@/components/auth-buttons" // 👈 新しいボタンをインポート
 
 export default async function Home() {
@@ -15,7 +16,7 @@ export default async function Home() {
           <div>
             <p className="text-green-600 font-medium mb-4">ログイン中</p>
             {session.user?.image && (
-              <img src={session.user.image} alt="Avatar" className="w-20 h-20 rounded-full mx-auto mb-4 border" />
+              <Image src={session.user.image} alt="Avatar" width={80} height={80} className="w-20 h-20 rounded-full mx-auto mb-4 border" />
             )}
             <h2 className="text-lg font-semibold">{session.user?.name}</h2>
             <p className="text-gray-500 text-sm mb-6">{session.user?.email}</p>
